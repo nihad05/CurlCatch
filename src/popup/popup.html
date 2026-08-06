@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>CurlCatch</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="brand">
+        <span class="brand-mark">~$</span>
+        <span class="brand-name">CurlCatch</span>
+      </div>
+      <div class="controls">
+        <button id="toggle" class="btn btn-primary" type="button">Start capturing</button>
+        <button id="reload" class="btn" type="button" hidden>Reload page</button>
+        <button id="clear" class="btn" type="button">Clear</button>
+      </div>
+      <label class="filter">
+        <input id="apiOnly" type="checkbox" checked />
+        <span>API calls only</span>
+      </label>
+      <p id="reloadHint" class="hint" hidden>Reload to capture calls made on page load.</p>
+      <p id="notice" class="notice" hidden></p>
+    </header>
+
+    <main class="main">
+      <ul id="list" class="list"></ul>
+      <p id="empty" class="empty" hidden>Click "Start capturing", then reload the page.</p>
+    </main>
+
+    <div id="toast" class="toast" hidden></div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

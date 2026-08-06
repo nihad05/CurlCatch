@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "CurlCatch",
+  "version": "0.1.0",
+  "description": "Record a page's API calls, copy them as cURL for Postman, and replay them from the browser.",
+  "permissions": ["debugger", "storage", "tabs", "clipboardWrite"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "CurlCatch"
+  }
+}
