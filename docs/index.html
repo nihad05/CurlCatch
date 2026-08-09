@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — CurlCatch</title>
+  <meta name="description" content="Privacy policy for the CurlCatch Chrome extension. CurlCatch collects nothing and sends nothing anywhere; all processing happens locally in your browser.">
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+      color: #1a1a1a;
+      background: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { color: #e6e6e6; background: #161616; }
+      code { background: #2a2a2a; }
+      a { color: #6ea8fe; }
+    }
+    h1 { font-size: 1.9rem; margin-bottom: 0.25rem; }
+    h2 { font-size: 1.25rem; margin-top: 2rem; }
+    .updated { color: #888; font-size: 0.9rem; margin-top: 0; }
+    code { background: #f1f1f1; padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.9em; }
+    ul { padding-left: 1.25rem; }
+    li { margin: 0.4rem 0; }
+    a { color: #0b57d0; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy — CurlCatch</h1>
+  <p class="updated">Last updated: 2026-08-06</p>
+
+  <p>CurlCatch is a Chrome extension for QA testers and developers. This policy explains what the
+  extension does — and does not — do with your data.</p>
+
+  <h2>The short version</h2>
+  <p><strong>CurlCatch collects nothing and sends nothing anywhere.</strong> All processing happens
+  locally in your browser. There is no analytics, no tracking, no external server, and no account.</p>
+
+  <h2>What the extension accesses</h2>
+  <ul>
+    <li><strong>Network requests on the active tab, only while you are capturing.</strong> When you
+    click <strong>Start capturing</strong>, CurlCatch attaches Chrome's <code>debugger</code>
+    (Network domain) to the current tab to read request and response data so it can build cURL
+    commands and replay requests. Capture is opt-in and starts detached; Chrome shows its standard
+    "…is being debugged" banner while active. Capturing stops when you click Stop, switch off, or
+    close the popup.</li>
+    <li><strong>Local storage.</strong> CurlCatch stores only your UI preferences on your own device
+    using <code>chrome.storage</code>. This never leaves your browser.</li>
+  </ul>
+
+  <h2>What we do NOT do</h2>
+  <ul>
+    <li>We do <strong>not</strong> transmit your requests, responses, cookies, headers, or any
+    captured data to us or any third party.</li>
+    <li>We do <strong>not</strong> collect analytics, telemetry, or personal information.</li>
+    <li>We do <strong>not</strong> use advertising or tracking of any kind.</li>
+    <li>We do <strong>not</strong> sell or share data — because we never collect any.</li>
+  </ul>
+
+  <h2>Permissions and why they are needed</h2>
+  <ul>
+    <li><code>debugger</code> — the only Chrome API that exposes request/response bodies, required
+    for capture and cURL export.</li>
+    <li><code>&lt;all_urls&gt;</code> (host permissions) — so you can capture on whatever site you are
+    testing. No captured data leaves your device.</li>
+    <li><code>storage</code> — to remember your UI preferences locally.</li>
+    <li><code>tabs</code> — to attach the debugger to the active tab.</li>
+    <li><code>clipboardWrite</code> — to copy the generated cURL command to your clipboard.</li>
+  </ul>
+
+  <h2>Open source</h2>
+  <p>CurlCatch is open source. You can inspect exactly what it does at
+  <a href="https://github.com/nihad05/CurlCatch">github.com/nihad05/CurlCatch</a>.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy? Open an issue at
+  <a href="https://github.com/nihad05/CurlCatch/issues">github.com/nihad05/CurlCatch/issues</a>.</p>
+</body>
+</html>
