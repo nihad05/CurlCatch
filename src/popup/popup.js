@@ -7,6 +7,7 @@ const els = {
   reloadHint: document.getElementById('reloadHint'),
   clear: document.getElementById('clear'),
   apiOnly: document.getElementById('apiOnly'),
+  methodFilter: document.getElementById('methodFilter'),
   notice: document.getElementById('notice'),
   list: document.getElementById('list'),
   empty: document.getElementById('empty'),
@@ -213,9 +214,33 @@ function buildRow(rec) {
   return li;
 }
 
+function recordMethod(rec) {
+  return (rec.method || 'GET').toUpperCase();
+}
+
+function updateMethodOptions() {
+  const methods = [...new Set(records.map(recordMethod))].sort();
+  const current = els.methodFilter.value;
+  const options = ['ALL', ...methods];
+  els.methodFilter.replaceChildren(
+    ...options.map((value) => {
+      const opt = document.createElement('option');
+      opt.value = value;
+      opt.textContent = value === 'ALL' ? 'All' : value;
+      return opt;
+    })
+  );
+  els.methodFilter.value = options.includes(current) ? current : 'ALL';
+}
+
 function visibleRecords() {
-  if (els.apiOnly.checked) return records.filter(isApiRequest);
-  return records;
+  let visible = records;
+  if (els.apiOnly.checked) visible = visible.filter(isApiRequest);
+  const method = els.methodFilter.value;
+  if (method && method !== 'ALL') {
+    visible = visible.filter((rec) => recordMethod(rec) === method);
+  }
+  return visible;
 }
 
 function renderControls() {
@@ -227,6 +252,7 @@ function renderControls() {
 
 function render() {
   renderControls();
+  updateMethodOptions();
   const visible = visibleRecords();
   els.list.replaceChildren(...visible.map(buildRow));
   els.empty.hidden = visible.length > 0;
@@ -279,6 +305,7 @@ async function init() {
   });
 
   els.apiOnly.addEventListener('change', render);
+  els.methodFilter.addEventListener('change', render);
 
   chrome.storage.session.onChanged.addListener((changes) => {
     if (changes[recordsKey()] || changes[capturingKey()]) {

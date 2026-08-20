@@ -35,7 +35,6 @@ browser. There is no analytics, no tracking, no external server, and no account.
 - `<all_urls>` (host permissions) — so you can capture on whatever site you are testing. No captured
   data leaves your device.
 - `storage` — to remember your UI preferences locally.
-- `tabs` — to attach the debugger to the active tab.
 
 ## Open source
 

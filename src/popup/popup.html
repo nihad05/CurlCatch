@@ -17,10 +17,18 @@
         <button id="reload" class="btn" type="button" hidden>Reload page</button>
         <button id="clear" class="btn" type="button">Clear</button>
       </div>
-      <label class="filter">
-        <input id="apiOnly" type="checkbox" checked />
-        <span>API calls only</span>
-      </label>
+      <div class="filters">
+        <label class="filter">
+          <input id="apiOnly" type="checkbox" checked />
+          <span>API calls only</span>
+        </label>
+        <label class="filter">
+          <span>Method</span>
+          <select id="methodFilter" class="select">
+            <option value="ALL">All</option>
+          </select>
+        </label>
+      </div>
       <p id="reloadHint" class="hint" hidden>Reload to capture calls made on page load.</p>
       <p id="notice" class="notice" hidden></p>
     </header>

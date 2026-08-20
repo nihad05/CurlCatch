@@ -1,9 +1,15 @@
 {
   "manifest_version": 3,
   "name": "CurlCatch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Record a page's API calls, copy them as cURL for Postman, and replay them from the browser.",
-  "permissions": ["debugger", "storage", "tabs", "clipboardWrite"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["debugger", "storage", "clipboardWrite"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "src/background.js",
@@ -11,6 +17,12 @@
   },
   "action": {
     "default_popup": "src/popup/popup.html",
-    "default_title": "CurlCatch"
+    "default_title": "CurlCatch",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
   }
 }
