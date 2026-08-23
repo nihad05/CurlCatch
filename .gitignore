@@ -2,3 +2,7 @@
 /docs/*
 !/docs/index.html
 /plan.md
+CHANGELOG.md
+CONTRIBUTING.md
+SECURITY.md
+STORE_LISTING.md
