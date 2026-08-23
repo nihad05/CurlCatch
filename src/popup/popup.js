@@ -218,8 +218,11 @@ function recordMethod(rec) {
   return (rec.method || 'GET').toUpperCase();
 }
 
+const COMMON_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'];
+
 function updateMethodOptions() {
-  const methods = [...new Set(records.map(recordMethod))].sort();
+  const present = records.map(recordMethod);
+  const methods = [...new Set([...COMMON_METHODS, ...present])];
   const current = els.methodFilter.value;
   const options = ['ALL', ...methods];
   els.methodFilter.replaceChildren(

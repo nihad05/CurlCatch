@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "CurlCatch",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Record a page's API calls, copy them as cURL for Postman, and replay them from the browser.",
   "icons": {
     "16": "icons/icon16.png",
